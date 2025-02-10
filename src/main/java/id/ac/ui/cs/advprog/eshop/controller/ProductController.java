@@ -20,13 +20,13 @@ public class ProductController {
     public String createProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "CreateProduct";
+        return "createProduct";
     }
 
     @PostMapping("/create")
     public String createProduct(@ModelAttribute("product") Product product, Model model) {
         service.create(product);
-        return "redirect:/list";
+        return "redirect:list";
     }
 
     @GetMapping("/list")
