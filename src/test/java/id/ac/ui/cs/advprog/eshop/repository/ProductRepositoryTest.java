@@ -146,7 +146,6 @@ class ProductRepositoryTest {
         Product firstUpdate = new Product();
         firstUpdate.setProductName("Sampo Cap Usep");
         firstUpdate.setProductQuantity(200);
-        Product firstEdit = productRepository.edit(product.getProductId(), firstUpdate);
 
         // Second edit
         Product secondUpdate = new Product();
