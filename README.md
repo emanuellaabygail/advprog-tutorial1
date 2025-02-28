@@ -56,3 +56,26 @@ Indentasi yang rapi, penggunaan spasi yang konsisten, dan pemisahan logika yang 
    - *Continuous Integration* berarti setiap perubahan pada kode terintegrasi dan akan diuji oleh *automated build script*. Hal ini telah diimplementasikan dengan cara membuat workflow `ci.yml` yang menjalankan unit test, `scorecard.yml` yang melakukan pengecekan keamanan dengan OSSF, dan `sonarcloud.yml` yang melakukan pemeriksaan kode melalui SonarCloud. Setiap terjadi perubahan pada kode dan perubahan tersebut di-*push*, ketiga workflows tersebut akan berjalan untuk melakukan pengecekan kode.
    - *Continuous Deployment* berarti setiap perubahan pada kode akan di-*deploy* secara langsung. Hal ini sudah diimplementasikan melalui PaaS Koyeb. Dengan menggunakan Koyeb, setiap perubahan yang di-*push* akan langsung dideploy ke web.
 </details>
+
+<details>
+<summary>Module 3</summary>
+
+## Reflection
+1. **Principles applied to the code**
+   - *Single Responsibility Principle (SRP)*: Pemisahan antara `ProductController` dan juga `CarController`. Pada before-solid, kedua kelas controller tersebut dijadikan satu, tetapi setelah penerapan SRP, saya memisahkan keduanya agar masing-masing class hanya memiliki satu responsibility.
+   - *Open-Closed Principle (OCP)*: Untuk menerapkan OCP, saya membuat class baru yaitu `GenericRepository`. `ProductRepository` dan `CarRepository` memiliki struktur yang mirip. Jika nantinya akan ditambahkan model baru, kita tidak perlu mengedit repository yang sudah ada, hanya perlu mengimplement `GenericRepository`
+   - *Liskov Substitution Principle (LSP)*: Awalnya, `CarController` meng-extend `ProductController` padahal terdapat method yang berbeda di antara keduanya. Hal tersebut melanggar LSP. Oleh karena itu, saya mengatasinya dengan menghapus `extend ProductController` pada `CarController`
+   - *Interface Segregation Principle (ISP)*: Sudah diimplementasikan pada `CarService` dan `ProductService` karena kedua interface tersebut mendefinisikan methods yang sesuai dengan masing-masing model sehingga sudah sesuai dengan ISP.
+   - *Dependency Inversion Principle (DIP)*: Sebelumnya, `CarController` bergantung langsung ke `CarServiceImpl` yang merupakan kelas abstract. Hal ini melanggar DIP. Untuk memperbaikinya, saya mengganti data type dari `carService` menjadi `CarService` yang merupakan sebuah interface.
+
+
+2. **Advantages of applying SOLID principles to project**
+   
+   Menggunakan SOLID Principles membuat kode lebih mudah dipahami, dikelola, dan dikembangkan. Dengan menerapkan prinsip Single Responsibility, setiap kelas memiliki satu tugas utama, sehingga perubahan lebih terlokalisasi. Open/Closed Principle memungkinkan penambahan fitur tanpa harus mengubah kode yang sudah ada, mengurangi risiko bug. Liskov Substitution memastikan bahwa subclass bisa menggantikan superclass tanpa mengubah perilaku sistem. Interface Segregation membantu menghindari pembuatan interface yang terlalu besar, sehingga setiap bagian hanya menggunakan metode yang memang diperlukan. Terakhir, Dependency Inversion membuat sistem lebih fleksibel dengan mengandalkan abstraksi daripada implementasi langsung, yang mempermudah pengujian dan pengembangan di masa depan.
+
+
+3. **Disdvantages of not applying SOLID principles to project**
+
+   Tidak menerapkan prinsip SOLID bisa membuat kode menjadi sulit dipahami, diperbaiki, dan dikembangkan. Tanpa Single Responsibility Principle (SRP), sebuah kelas bisa memiliki terlalu banyak tanggung jawab, sehingga setiap perubahan berisiko memengaruhi banyak bagian lain. Jika Open/Closed Principle (OCP) tidak diterapkan, menambahkan fitur baru bisa menyebabkan perubahan pada kode lama, meningkatkan risiko bug. Mengabaikan Liskov Substitution Principle (LSP) dapat membuat subclass tidak bisa menggantikan superclass dengan benar, menyebabkan error yang sulit dideteksi. Interface Segregation Principle (ISP) yang diabaikan bisa menghasilkan antarmuka yang terlalu besar dan membebani kelas dengan metode yang tidak perlu. Terakhir, tanpa Dependency Inversion Principle (DIP), sistem akan terlalu bergantung pada implementasi konkret, menyulitkan pengujian dan perubahan di masa depan.
+   
+</details>
