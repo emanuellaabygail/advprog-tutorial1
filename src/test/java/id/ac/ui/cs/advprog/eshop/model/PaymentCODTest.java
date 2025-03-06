@@ -22,7 +22,7 @@ class PaymentCODTest extends PaymentTest{
     void testValidCODPayment() {
         paymentData.put("address", "Margonda");
         paymentData.put("deliveryFee", "9000");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
     }
 
@@ -30,7 +30,7 @@ class PaymentCODTest extends PaymentTest{
     void testAddressEmptyStringCODPayment() {
         paymentData.put("address", "");
         paymentData.put("deliveryFee", "10000");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
@@ -38,21 +38,21 @@ class PaymentCODTest extends PaymentTest{
     void testDeliveryFeeEmptyStringCODPayment() {
         paymentData.put("address", "Kukusan");
         paymentData.put("deliveryFee", "");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
     @Test
     void testAddressNullCODPayment() {
         paymentData.put("deliveryFee", "10000");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
     @Test
     void testDeliveryFeeNullCODPayment() {
         paymentData.put("address", "Kukusan");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
@@ -60,13 +60,13 @@ class PaymentCODTest extends PaymentTest{
     void testBothEmptyStringCODPayment() {
         paymentData.put("address", "");
         paymentData.put("address", "");
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 
     @Test
     void testBothNullCODPayment() {
-        PaymentCOD payment = new PayentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
+        PaymentCOD payment = new PaymentCOD("506d1849-9a38-4ceb-90a3-209f6ce8dc3e", PaymentMethod.COD.getValue(), this.paymentData);
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
     }
 }
