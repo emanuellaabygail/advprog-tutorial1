@@ -1,6 +1,7 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
-import id.ac.ui.cs.advprog.eshop.enums.OrderStatus;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,30 +23,23 @@ public class Payment {
         this.paymentData = paymentData;
         this.status = "PENDING";
 
-        String[] methodList = {"VOUCHER", "COD"};
-        if(Arrays.stream(methodList).noneMatch(item -> (item.equals(method)))){
-            throw new IllegalArgumentException();
-        } else{
+        if(PaymentMethod.contains(method)){
             this.method = method;
+        } else{
+            throw new IllegalArgumentException();
         }
     }
 
     public Payment(String id, String method, String status, Map<String, String> paymentData) {
         this(id, method, paymentData);
-        String[] statusList = {"PENDING", "REJECTED", "SUCCESS"};
-        if(Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))){
-            throw new IllegalArgumentException();
-        } else{
-            this.status = status;
-        }
+        this.setStatus(status);
     }
 
     public void setStatus(String status) {
-        String[] statusList = {"PENDING", "REJECTED", "SUCCESS"};
-        if(Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))){
-            throw new IllegalArgumentException();
-        } else{
+        if(PaymentStatus.contains(status)){
             this.status = status;
+        } else{
+            throw new IllegalArgumentException();
         }
     }
 }
