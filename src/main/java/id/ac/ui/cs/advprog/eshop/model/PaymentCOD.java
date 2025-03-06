@@ -19,9 +19,25 @@ public class PaymentCOD extends Payment {
 
     public PaymentCOD(String id, String method, Map<String, String> paymentData) {
         super(id, method, paymentData);
+        String address = paymentData.get("address");
+        String deliveryFee = paymentData.get("deliveryFee");
+
+        if(address==null || deliveryFee==null || address.equals("") || deliveryFee.equals("")){
+            this.status = PaymentStatus.REJECTED.getValue();
+        } else{
+            this.status = PaymentStatus.SUCCESS.getValue();
+        }
     }
 
     public PaymentCOD(String id, String method, String status, Map<String, String> paymentData) {
         super(id, method, paymentData);
+        String address = paymentData.get("address");
+        String deliveryFee = paymentData.get("deliveryFee");
+
+        if(address==null || deliveryFee==null || address.equals("") || deliveryFee.equals("")){
+            this.status = PaymentStatus.REJECTED.getValue();
+        } else{
+            this.status = PaymentStatus.SUCCESS.getValue();
+        }
     }
 }
