@@ -68,7 +68,7 @@ public class PaymentServiceImplTest {
         Order order = orders.get(0);
         Payment payment = payments.get(0);
         doReturn(payment).when(paymentRepository).save(any(Payment.class));
-        Payment result = PaymentService.addPayment(order, PaymentMethod.VOUCHER.getValue(), Map.of("voucherCode", "ESHOP1234ABC5678"));
+        Payment result = paymentService.addPayment(order, PaymentMethod.VOUCHER.getValue(), Map.of("voucherCode", "ESHOP1234ABC5678"));
         verify(paymentRepository, times(1)).save(any(Payment.class));
         assertEquals(payment.getId(), result.getId());
     }
