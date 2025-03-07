@@ -79,3 +79,21 @@ Indentasi yang rapi, penggunaan spasi yang konsisten, dan pemisahan logika yang 
    Tidak menerapkan prinsip SOLID bisa membuat kode menjadi sulit dipahami, diperbaiki, dan dikembangkan. Tanpa Single Responsibility Principle (SRP), sebuah kelas bisa memiliki terlalu banyak tanggung jawab, sehingga setiap perubahan berisiko memengaruhi banyak bagian lain. Jika Open/Closed Principle (OCP) tidak diterapkan, menambahkan fitur baru bisa menyebabkan perubahan pada kode lama, meningkatkan risiko bug. Mengabaikan Liskov Substitution Principle (LSP) dapat membuat subclass tidak bisa menggantikan superclass dengan benar, menyebabkan error yang sulit dideteksi. Interface Segregation Principle (ISP) yang diabaikan bisa menghasilkan antarmuka yang terlalu besar dan membebani kelas dengan metode yang tidak perlu. Terakhir, tanpa Dependency Inversion Principle (DIP), sistem akan terlalu bergantung pada implementasi konkret, menyulitkan pengujian dan perubahan di masa depan.
    
 </details>
+
+<details>
+<summary>Module 4</summary>
+
+1. **Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.**
+   
+   Menurut saya, walaupun TDD sedikit lebih sulit dari pada cara biasa, penerapan TDD sejauh ini cukup membantu, terutama dalam memastikan bahwa kode yang saya buat berjalan sesuai harapan sejak awal. Dengan menulis tes terlebih dahulu, saya dapat lebih memahami tujuan dari setiap bagian kode, serta lebih cepat menemukan kesalahan yang mungkin terjadi. Namun, ada beberapa hal yang masih perlu saya perbaiki. Namun, saya masih merasa belum terbiasa dalam menerapkan TDD. Terkadang saya masih kesulitan dalam membuat test yang sesuai. Oleh karena itu, saya akan berlatih lebih banyak agar lebih fasih dalam menggunakan TDD.
+2. **You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.**
+
+   Berdasarkan prinsip F.I.R.S.T., saya merasa bahwa unit test yang saya buat dalam tutorial sudah mengikuti semua aspek dengan cukup baik:
+   - Fast (Cepat) – Tes berjalan dengan cepat tanpa memperlambat proses pengembangan.
+   - Independent (Independen) – Setiap tes dapat dijalankan sendiri tanpa bergantung pada tes lain. 
+   - Repeatable (Dapat Diulang) – Hasil pengujian selalu konsisten, tidak terpengaruh oleh faktor eksternal. 
+   - Self-Validating (Jelas Hasilnya) – Tes memberikan hasil yang tegas (lulus/gagal) tanpa perlu pemeriksaan manual. 
+   - Timely (Tepat Waktu) – Saya sudah menulis tes sebelum atau selama proses pengembangan, bukan setelahnya.
+   
+   Karena semua prinsip ini sudah saya terapkan, ke depannya saya hanya perlu terus menjaga konsistensi dalam menulis tes agar tetap efektif dan relevan.
+</details>
